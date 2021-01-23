@@ -3,14 +3,14 @@
 
 [Live Site] (https://react-crud-axios.netlify.app/)
 
-##Download and run
+## Download and run
   ```javascript
   npm i
   npm run concurrently
 ```
-![home] (./image/home.png)
-![AddUser](./image/Add.png)
-![afteradd](./image/afteradd_user.png)
-![edituser](./image/edit_user.png)
-![serach](./image/Search.png)
-![Delete](./image/Delete.png)
+![home](/image/home.png)
+![AddUser](/image/Add.png)
+![afteradd](/image/afteradd_user.png)
+![edituser](/image/edit_user.png)
+![serach](/image/Search.png)
+![Delete](/image/Delete.png)
