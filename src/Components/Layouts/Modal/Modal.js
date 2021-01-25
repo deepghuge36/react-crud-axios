@@ -10,7 +10,7 @@ const ModalExample = (props) => {
 
   const { id, first_name, last_name, deleteUser } = props
 
-  console.log(id)
+  // console.log(id)
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal, () => {

@@ -39,71 +39,74 @@ export default function UserList() {
               setSearch(e.target.value);
             }} />
           </div>
+          {(users.length !== 0 ?
+            <table className="table border shadow">
 
-          <table className="table border shadow">
+              <thead className="thead-dark thead-color">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">State</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Pincode</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
 
-            <thead className="thead-dark thead-color">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">State</th>
-                <th scope="col">City</th>
-                <th scope="col">Pincode</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
 
-            {users.filter((val) => {
-              if (search == "") {
-                return val
-              } else if (
-                val.first_name.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              } else if (
-                val.last_name.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              } else if (
-                val.email.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              } else if (
-                val.city.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              } else if (
-                val.states.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              } else if (
-                val.pincode.toLowerCase().includes(search.toLowerCase())) {
-                return val
-              }
-            }).map((user, index) => {
-              return (
+              {users.filter((val) => {
+                if (search == "") {
+                  return val
+                } else if (
+                  val.first_name.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                } else if (
+                  val.last_name.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                } else if (
+                  val.email.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                } else if (
+                  val.city.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                } else if (
+                  val.states.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                } else if (
+                  val.pincode.toLowerCase().includes(search.toLowerCase())) {
+                  return val
+                }
+              }).map((user, index) => {
+                return (
 
-                <tbody>
-                  <tr key={user.id}>
-                    <th scope="row">{index + 1}</th>
-                    <td>{user.first_name}</td>
-                    <td>{user.last_name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.states}</td>
-                    <td>{user.city}</td>
-                    <td>{user.pincode}</td>
-                    <td className="d-flex justify-content-center">
-                      <Link
-                        className="btn btn-primary mr-2 "
-                        to={`/updateuser/${user.id}`}
-                      >
-                        Edit
+                  <tbody>
+                    <tr key={user.id}>
+                      <th scope="row">{index + 1}</th>
+                      <td>{user.first_name}</td>
+                      <td>{user.last_name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.states}</td>
+                      <td>{user.city}</td>
+                      <td>{user.pincode}</td>
+                      <td className="d-flex justify-content-center">
+                        <Link
+                          className="btn btn-primary mr-2 "
+                          to={`/updateuser/${user.id}`}
+                        >
+                          Edit
                   </Link>
-                      <ModalExample first_name={user.first_name} last_name={user.last_name} id={user.id} deleteUser={deleteUser}> </ModalExample>
-                    </td>
-                  </tr>
-                </tbody>
+                        <ModalExample first_name={user.first_name} last_name={user.last_name} id={user.id} deleteUser={deleteUser}> </ModalExample>
+                      </td>
+                    </tr>
+                  </tbody>
 
-              )
-            })}
-          </table>
+                )
+              })
+              }
+            </table>
+            : <h2>Please Add Users <Link to='/adduser'>Click Here</Link></h2>)}
 
         </div>
       </div>
